@@ -29,10 +29,13 @@
   --ff: "Nunito Sans", sans-serif;
   --fs-details: 1rem;
   --fs-home: 0.875rem;
+  --border: 1px solid red;
 }
 
 body {
   width: 100vw;
   min-height: 100vh;
   font-family: var(--ff);
+  /* border: var(--border); */
+  /* clamp(100%, 6rem, 100%); */
 }
