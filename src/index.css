@@ -6,3 +6,33 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+:root {
+  /*====================
+  => Light Mode
+  ======================*/
+  --lm-tx-dark-blue: hsl(200, 15%, 8%);
+  --lm-input-dark-gray: hsl(0, 0%, 52%);
+  --lm-bg-light-gray: hsl(0, 0%, 98%);
+  --white: hsl(0, 0%, 100%); /*(Dark Mode Text & Light Mode Elements)*/
+
+  /*====================
+  => Dark Mode
+  ======================*/
+  --dm-el-dark-blue: hsl(209, 23%, 22%);
+  --dm-bg-dark-blue: hsl(207, 26%, 17%);
+
+  /*====================
+  => General Style
+  ======================*/
+  --transition-4s: ease-in-out 0.35s;
+  --ff: "Nunito Sans", sans-serif;
+  --fs-details: 1rem;
+  --fs-home: 0.875rem;
+}
+
+body {
+  width: 100vw;
+  min-height: 100vh;
+  font-family: var(--ff);
+}
