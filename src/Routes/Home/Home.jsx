@@ -11,13 +11,12 @@ const Home = ({ countriesData }) => {
         <FormContainer />
       </div>
       <div className="home__countries">
-        {countriesData.map((country) => {
-          console.log(country.name);
+        {countriesData.map(({ population, region, capital }) => {
           return (
             <div>
-              <p>{country.population} </p>
-              <p>{country.region} </p>
-              <p>{country.capital} </p>
+              <p>{population} </p>
+              <p>{region} </p>
+              <p>{capital} </p>
             </div>
           );
         })}
