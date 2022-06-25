@@ -7,9 +7,10 @@ const Home = () => {
   return (
     <div className="home__container">
       <Outlet />
-      <div>
+      <div className="home__form">
         <FormContainer />
       </div>
+      <div className="home__countries"></div>
     </div>
   );
 };
