@@ -1,14 +1,14 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-
+import FormContainer from "../../Components/Form/FormContainer";
 import "./Home.css";
 
 const Home = () => {
   return (
-    <div>
+    <div className="home__container">
       <Outlet />
       <div>
-        <h1>Home Components</h1>
+        <FormContainer />
       </div>
     </div>
   );

@@ -10,7 +10,7 @@ const dark = false;
 const NavBar = () => {
   return (
     <Fragment>
-      <div className="NavBar">
+      <div className="nav_bar">
         <div className="nav__container">
           <Link className="nav__logo" to="/">
             <p>

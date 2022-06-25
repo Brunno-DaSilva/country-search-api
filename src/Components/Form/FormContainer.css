@@ -1,0 +1,14 @@
+.form__container {
+  background-color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.form__wrapper {
+  width: 90%;
+  height: 90%;
+  display: grid;
+  grid-template-columns: 6fr 6fr;
+}
