@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import Home from "./Routes/Home/Home.jsx";
@@ -8,14 +8,30 @@ import NavBar from "./Routes/NavBar/NavBar.jsx";
 
 import "./App.css";
 
-const URL_DATA = `https://restcountries.com/v3.1/all`;
-
 function App() {
+  const API_URL_DATA = `https://restcountries.com/v3.1/all`;
+
+  const [countriesData, setCountriesData] = useState([]);
+
+  useEffect(() => {
+    const fetchCountries = async () => {
+      try {
+        const response = await fetch(API_URL_DATA);
+        const countriesList = await response.json();
+
+        setCountriesData(countriesList);
+      } catch (err) {
+        console.log(err.stack);
+      }
+    };
+    fetchCountries();
+  }, []);
+
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<NavBar />}>
-          <Route index element={<Home />} />
+          <Route index element={<Home countriesData={countriesData} />} />
           <Route path="details" element={<Details />} />
         </Route>
       </Routes>

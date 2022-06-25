@@ -19,3 +19,7 @@
   color: var(--lm-input-dark-gray);
   font-weight: 300;
 }
+
+.opt-1 {
+  margin-top: 20rem;
+}

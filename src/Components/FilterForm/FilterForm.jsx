@@ -39,9 +39,11 @@ const FilterForm = () => {
           name="regions"
           placeholder="Filter by region"
         >
-          <option value="placeholder" disabled selected>
-            Filter by Region
-          </option>
+          <div className="opt-1">
+            <option value="placeholder" disabled selected>
+              Filter by Region
+            </option>
+          </div>
           {FILTER_REGIONS.map((region) => {
             return (
               <option id={region.id} value={region.value}>
