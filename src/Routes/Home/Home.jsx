@@ -15,11 +15,29 @@ const Home = ({ countriesData }) => {
           {countriesData.map(({ population, region, capital, name, flags }) => {
             return (
               <div className="home__countries_card">
-                <img src={flags.png} alt={name.official} />
-                <h1>{name.common}</h1>
-                <p>{population} </p>
-                <p>{region} </p>
-                <p>{capital} </p>
+                <div className="card__top">
+                  <div className="card__top__img">
+                    <img src={flags.png} alt={name.official} />
+                  </div>
+                </div>
+
+                <div className="card__bottom">
+                  <div className="card__bottom__title">
+                    <h3>{name.common}</h3>
+                  </div>
+
+                  <div className="card__bottom__description">
+                    <p>
+                      Population: <span>{population}</span>
+                    </p>
+                    <p>
+                      Region: <span>{region}</span>{" "}
+                    </p>
+                    <p>
+                      capital: <span>{capital}</span>{" "}
+                    </p>
+                  </div>
+                </div>
               </div>
             );
           })}
