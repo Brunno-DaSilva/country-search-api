@@ -34,7 +34,7 @@ const Home = ({ countriesData }) => {
                       Region: <span>{region}</span>{" "}
                     </p>
                     <p>
-                      capital: <span>{capital}</span>{" "}
+                      Capital: <span>{capital}</span>{" "}
                     </p>
                   </div>
                 </div>

@@ -23,8 +23,8 @@
 }
 
 .home__countries_card {
-  width: 300px;
-  min-height: 400px;
+  width: 18.75rem;
+  min-height: 25rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -35,7 +35,6 @@
   width: 100%;
 }
 .card__bottom {
-  border: 1px solid blue;
   width: 100%;
   padding: 2rem;
   padding-right: 1rem;
@@ -45,27 +44,26 @@
   height: 12rem;
   display: block;
   object-fit: cover;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
 }
 .card__bottom__title {
   width: 99%;
-  border: 1px solid red;
 }
 .card__bottom__title h3 {
   font-size: calc(var(--fs-home) + 0.5rem);
 }
 .card__bottom__description {
-  border: 1px solid green;
   width: 99%;
   padding-top: 2rem;
 }
 .card__bottom__description p {
-  border: 1px solid green;
   width: 99%;
   font-weight: 800;
   font-size: calc(var(--fs-home) + 0.2rem);
+  line-height: 1.8rem;
 }
 .card__bottom__description p span {
-  border: 1px solid green;
   width: 99%;
   font-weight: 400;
 }
