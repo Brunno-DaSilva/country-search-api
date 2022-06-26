@@ -21,6 +21,7 @@ const Home = ({ countriesData }) => {
                   onClick={() => {
                     navigate(`/details/${mutatedName}`);
                   }}
+                  key={mutatedName}
                   className="home__countries_card"
                 >
                   <div className="card__top">

@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 
 import Home from "./Routes/Home/Home.jsx";
 import Details from "./Routes/Details/Details.jsx";
-
+import Error from "./Routes/Error/Error.jsx";
 import NavBar from "./Routes/NavBar/NavBar.jsx";
 
 import "./App.css";
@@ -34,6 +34,7 @@ function App() {
           <Route path="details" element={<Details />}>
             <Route path=":countryId" element={<Details />} />
           </Route>
+          <Route path="*" element={<Error />} />
         </Route>
       </Routes>
     </div>

@@ -41,7 +41,7 @@ const FilterForm = () => {
           placeholder="Filter by region"
         >
           <div className="opt-1">
-            <option value="placeholder" disabled selected>
+            <option value="placeholder" disabled defaultValue>
               Filter by Region
             </option>
           </div>
