@@ -10,7 +10,6 @@ import "./App.css";
 
 function App() {
   const API_URL_DATA = `https://restcountries.com/v3.1/all`;
-
   const [countriesData, setCountriesData] = useState([]);
 
   useEffect(() => {
@@ -32,7 +31,9 @@ function App() {
       <Routes>
         <Route path="/" element={<NavBar />}>
           <Route index element={<Home countriesData={countriesData} />} />
-          <Route path="details" element={<Details />} />
+          <Route path="details" element={<Details />}>
+            <Route path=":countryId" element={<Details />} />
+          </Route>
         </Route>
       </Routes>
     </div>
