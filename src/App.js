@@ -28,7 +28,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="app">
       <Routes>
         <Route path="/" element={<NavBar />}>
           <Route index element={<Home countriesData={countriesData} />} />

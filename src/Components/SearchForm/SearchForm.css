@@ -10,7 +10,7 @@
   width: 70%;
   border-radius: 0.25rem;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
-  padding: 0.7rem;
+  padding: 0.3rem;
 }
 
 .search__icon {
@@ -32,7 +32,7 @@
   font-size: var(--fs-home);
   font-weight: 300;
   color: var(--lm-tx-dark-blue);
-  padding: 0.5rem;
+  padding: 0.7rem;
   font-family: var(--ff);
   width: 100%;
 }

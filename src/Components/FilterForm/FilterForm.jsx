@@ -29,6 +29,7 @@ const FILTER_REGIONS = [
     value: "oceania",
   },
 ];
+
 const FilterForm = () => {
   return (
     <div className="filter__container">

@@ -11,15 +11,19 @@ const Home = ({ countriesData }) => {
         <FormContainer />
       </div>
       <div className="home__countries">
-        {countriesData.map(({ population, region, capital }) => {
-          return (
-            <div>
-              <p>{population} </p>
-              <p>{region} </p>
-              <p>{capital} </p>
-            </div>
-          );
-        })}
+        <div className="countries__cards_wrapper">
+          {countriesData.map(({ population, region, capital, name, flags }) => {
+            return (
+              <div className="home__countries_card">
+                <img src={flags.png} alt={name.official} />
+                <h1>{name.common}</h1>
+                <p>{population} </p>
+                <p>{region} </p>
+                <p>{capital} </p>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
