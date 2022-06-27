@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useParams } from "react-router-dom";
 
 import Home from "./Routes/Home/Home.jsx";
 import Details from "./Routes/Details/Details.jsx";
@@ -13,6 +13,12 @@ function App() {
   const [countriesData, setCountriesData] = useState([]);
 
   useEffect(() => {
+    const localStorageData = window.localStorage.getItem("MY_COUNTRY_API_DATA");
+    if (localStorageData !== null)
+      setCountriesData(JSON.parse(localStorageData));
+  }, []);
+
+  useEffect(() => {
     const fetchCountries = async () => {
       try {
         const response = await fetch(API_URL_DATA);
@@ -23,8 +29,13 @@ function App() {
         console.log(err.stack);
       }
     };
+
     fetchCountries();
-  }, []);
+    window.localStorage.setItem(
+      "MY_COUNTRY_API_DATA",
+      JSON.stringify(countriesData)
+    );
+  }, [countriesData]);
 
   return (
     <div className="app">
@@ -34,12 +45,11 @@ function App() {
           <Route
             path="details"
             element={<Details countriesData={countriesData} />}
-          >
-            <Route
-              path=":countryId"
-              element={<Details countriesData={countriesData} />}
-            />
-          </Route>
+          />
+          <Route
+            path="details/:countryId"
+            element={<Details countriesData={countriesData} />}
+          />
           <Route path="*" element={<Error />} />
         </Route>
       </Routes>

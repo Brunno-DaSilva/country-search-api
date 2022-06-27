@@ -45,10 +45,10 @@ const FilterForm = () => {
               Filter by Region
             </option>
           </div>
-          {FILTER_REGIONS.map((region) => {
+          {FILTER_REGIONS.map(({ id, value, name }) => {
             return (
-              <option id={region.id} value={region.value}>
-                {region.name}
+              <option key={id} id={id} value={value}>
+                {name}
               </option>
             );
           })}
