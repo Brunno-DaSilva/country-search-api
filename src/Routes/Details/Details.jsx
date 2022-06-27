@@ -7,6 +7,14 @@ import "./Details.css";
 
 const Details = ({ countriesData }) => {
   const { countryId } = useParams();
+  /*================
+  ==> 👇🏽 TODO: 👇🏽 
+  ==================*/
+  /*
+  [ ] Fetch only the country by passing the country name to this url
+        https://restcountries.com/v3.1/name/${name}?fullText=true
+  [ ] Implement the new data in state and within this logic 👇🏽
+  */
 
   const country = countriesData.find((data) => {
     let mutatedName = data.name.common.toLowerCase().replace(/\s+/g, "-");

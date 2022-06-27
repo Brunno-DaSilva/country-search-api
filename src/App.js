@@ -40,13 +40,15 @@ function App() {
   return (
     <div className="app">
       <Routes>
-        <Route path="/" element={<NavBar />}>
+        <Route exact path="/" element={<NavBar />}>
           <Route index element={<Home countriesData={countriesData} />} />
           <Route
+            exact
             path="details"
             element={<Details countriesData={countriesData} />}
           />
           <Route
+            exact
             path="details/:countryId"
             element={<Details countriesData={countriesData} />}
           />
