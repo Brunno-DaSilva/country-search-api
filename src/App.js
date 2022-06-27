@@ -31,8 +31,14 @@ function App() {
       <Routes>
         <Route path="/" element={<NavBar />}>
           <Route index element={<Home countriesData={countriesData} />} />
-          <Route path="details" element={<Details />}>
-            <Route path=":countryId" element={<Details />} />
+          <Route
+            path="details"
+            element={<Details countriesData={countriesData} />}
+          >
+            <Route
+              path=":countryId"
+              element={<Details countriesData={countriesData} />}
+            />
           </Route>
           <Route path="*" element={<Error />} />
         </Route>

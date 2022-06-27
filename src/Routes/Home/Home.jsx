@@ -14,7 +14,7 @@ const Home = ({ countriesData }) => {
       <div className="home__countries">
         <div className="countries__cards_wrapper">
           {countriesData.map(
-            ({ population, region, capital, name, flags }, index) => {
+            ({ population, region, capital, name, flags, idd }) => {
               let mutatedName = name.common.toLowerCase().replace(/\s+/g, "-");
               return (
                 <div
