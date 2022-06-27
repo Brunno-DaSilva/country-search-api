@@ -8,17 +8,31 @@
 }
 
 .details__wrapper {
-  display: grid;
-  grid-template-columns: 1fr 6fr;
-  width: 70%;
-  border-radius: 0.25rem;
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
-  padding: 0.5rem;
-  background-color: var(--white);
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .details__button_container {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   width: 100%;
+  padding: 2rem;
+  padding-left: 0;
+}
+
+.details__button_container--btn {
+  padding: 1.2rem 2rem;
+  background-color: var(--lm-bg-light-gray);
+  box-shadow: 0px 3px 15px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 0.25rem;
+  text-decoration: none;
+  color: var(--lm-tx-dark-blue);
+}
+
+.details__button_container--btn span {
+  padding: 0.8rem;
+  font-weight: 600;
 }

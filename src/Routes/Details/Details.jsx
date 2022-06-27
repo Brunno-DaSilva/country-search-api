@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "./Details.css";
 
 const Details = ({ countriesData }) => {
+  const [countryDetails, setCountryDetails] = useState();
   const { countryId } = useParams();
+  const location = useLocation();
+  console.log("NAVIGATE --", location);
+
   /*================
   ==> 👇🏽 TODO: 👇🏽 
   ==================*/
@@ -27,13 +31,12 @@ const Details = ({ countriesData }) => {
     <div className="details">
       <div className="details__wrapper">
         <div className="details__button_container">
-          <Link to="/" className="">
+          <Link to="/" className="details__button_container--btn">
             <FontAwesomeIcon icon={faArrowLeftLong} />
-            Back Home
+            <span>Back</span>
           </Link>
         </div>
         <div className="details__info">
-          <h1>{countryId}</h1>
           <div className="home__countries_card">
             <div className="card__top">
               <div className="card__top__img">
