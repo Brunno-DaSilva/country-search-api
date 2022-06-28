@@ -30,6 +30,7 @@
   border-radius: 0.25rem;
   text-decoration: none;
   color: var(--lm-tx-dark-blue);
+  font-size: var(--fs-details);
 }
 
 .details__button_container--btn span {

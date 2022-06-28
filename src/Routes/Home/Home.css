@@ -30,9 +30,15 @@
   align-items: flex-start;
   box-shadow: 0px 3px 15px 0 rgba(0, 0, 0, 0.2);
   border-radius: 0.28rem;
-
   background-color: var(--white);
+  transition: var(--transition-4s);
 }
+
+.home__countries_card:hover {
+  cursor: pointer;
+  box-shadow: 0px 14px 48px 0 rgba(0, 0, 0, 0.2);
+}
+
 .card__top {
   width: 100%;
 }
