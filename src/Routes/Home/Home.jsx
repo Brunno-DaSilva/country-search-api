@@ -9,8 +9,8 @@ import "./Home.css";
 
 const Home = () => {
   const { countriesData } = useContext(DataContext);
-
   const navigate = useNavigate();
+
   return (
     <div className="home__container">
       <Outlet />
@@ -20,8 +20,9 @@ const Home = () => {
       <div className="home__countries">
         <div className="countries__cards_wrapper">
           {countriesData.map(
-            ({ population, region, capital, name, flags, idd }) => {
+            ({ population, region, capital, name, flags }, index) => {
               let mutatedName = name.common.toLowerCase().replace(/\s+/g, "-");
+
               return (
                 <div
                   onClick={() => {
