@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Route, Routes, useParams } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 import Home from "./Routes/Home/Home.jsx";
 import Details from "./Routes/Details/Details.jsx";
 import Error from "./Routes/Error/Error.jsx";
 import NavBar from "./Routes/NavBar/NavBar.jsx";
+import { DataProvider } from "./Context/DataContext.js";
 
 import "./App.css";
 
@@ -39,22 +40,16 @@ function App() {
 
   return (
     <div className="app">
-      <Routes>
-        <Route exact path="/" element={<NavBar />}>
-          <Route index element={<Home countriesData={countriesData} />} />
-          <Route
-            exact
-            path="details"
-            element={<Details countriesData={countriesData} />}
-          />
-          <Route
-            exact
-            path="details/:countryId"
-            element={<Details countriesData={countriesData} />}
-          />
-          <Route path="*" element={<Error />} />
-        </Route>
-      </Routes>
+      <DataProvider>
+        <Routes>
+          <Route exact path="/" element={<NavBar />}>
+            <Route index element={<Home />} />
+            <Route exact path="details" element={<Details />} />
+            <Route exact path="details/:countryId" element={<Details />} />
+            <Route path="*" element={<Error />} />
+          </Route>
+        </Routes>
+      </DataProvider>
     </div>
   );
 }
