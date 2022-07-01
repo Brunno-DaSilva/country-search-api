@@ -6,6 +6,17 @@ const DataContext = createContext({});
 export const DataProvider = ({ children }) => {
   const API_URL_DATA = `https://restcountries.com/v3.1/all`;
   const [countriesData, setCountriesData] = useState([]);
+  const [filterCountries, setFilterCountries] = useState([]);
+
+  const handleFilterCountries = (e) => {
+    const filteredCountries = countriesData.filter(({ region, name }) => {
+      let wordToMatch = e.target.value;
+      const regex = new RegExp(wordToMatch, "gi");
+      return name.common.match(regex) || region.match(regex);
+    });
+
+    setFilterCountries(filteredCountries);
+  };
 
   useEffect(() => {
     const fetchCountries = async () => {
@@ -21,10 +32,13 @@ export const DataProvider = ({ children }) => {
 
     fetchCountries();
   }, []);
+
   return (
     <DataContext.Provider
       value={{
         countriesData,
+        filterCountries,
+        handleFilterCountries,
       }}
     >
       {children}

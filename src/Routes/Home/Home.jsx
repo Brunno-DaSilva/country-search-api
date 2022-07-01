@@ -8,8 +8,12 @@ import DataContext from "../../Context/DataContext";
 import "./Home.css";
 
 const Home = () => {
-  const { countriesData } = useContext(DataContext);
+  const { countriesData, filterCountries } = useContext(DataContext);
   const navigate = useNavigate();
+  console.log("filterCountries ---", filterCountries);
+  console.log("countriesData --", countriesData);
+  const filterOrCountries =
+    filterCountries.length >= 1 ? filterCountries : countriesData;
 
   return (
     <div className="home__container">
@@ -19,7 +23,7 @@ const Home = () => {
       </div>
       <div className="home__countries">
         <div className="countries__cards_wrapper">
-          {countriesData.map(
+          {filterOrCountries.map(
             ({ population, region, capital, name, flags }, index) => {
               let mutatedName = name.common.toLowerCase().replace(/\s+/g, "-");
 
