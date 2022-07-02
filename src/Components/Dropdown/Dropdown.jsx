@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import ChevronDown from "../../assets/chevron-down.svg";
 import ChevronUp from "../../assets/chevron-up.svg";
 

@@ -1,18 +1,17 @@
-import React, { Fragment } from "react";
+import React, { useState, Fragment } from "react";
 import { Outlet, Link } from "react-router-dom";
 
 import { faMoon, faSpinner, faSun } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "./NavBar.css";
-const dark = false;
 
 const NavBar = () => {
-  // const [isLightTheme, setIsLightTheme] = useState(true);
+  const [isLightTheme, setIsLightTheme] = useState(true);
 
-  // const lightThemeHandler = () => {
-  //   setIsLightTheme((prevMode) => !prevMode);
-  // };
+  const lightThemeHandler = () => {
+    setIsLightTheme((prevMode) => !prevMode);
+  };
 
   return (
     <Fragment>
@@ -25,17 +24,23 @@ const NavBar = () => {
             </p>
           </Link>
           <div className="nav__dark_mode">
-            {dark ? (
-              <button>
-                <FontAwesomeIcon icon={faSun} />
-                <span>Light Mode</span>
-              </button>
-            ) : (
-              <button>
-                <FontAwesomeIcon icon={faMoon} />
-                <span>Dark Mode</span>
-              </button>
-            )}
+            <button
+              onClick={() => {
+                lightThemeHandler();
+              }}
+            >
+              {isLightTheme ? (
+                <Fragment>
+                  <FontAwesomeIcon icon={faMoon} />
+                  <span>Dark Mode</span>
+                </Fragment>
+              ) : (
+                <Fragment>
+                  <FontAwesomeIcon icon={faSun} />
+                  <span>Light Mode</span>
+                </Fragment>
+              )}
+            </button>
           </div>
         </div>
       </div>
