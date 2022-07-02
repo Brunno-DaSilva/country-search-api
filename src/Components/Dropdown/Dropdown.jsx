@@ -32,22 +32,41 @@ const FILTER_REGIONS = [
 ];
 
 const Dropdown = () => {
-  const dropdownRef = useRef(null);
+  let dropdownRef = useRef(null);
   const [isActive, setIsActive] = useState(false);
 
   const handleIsActive = () => {
     setIsActive((prevMode) => !prevMode);
   };
 
+  useEffect(() => {
+    const pageClickEvent = (e) => {
+      if (
+        dropdownRef.current !== null &&
+        !dropdownRef.current.contains(e.target)
+      ) {
+        setIsActive((prevMode) => !prevMode);
+      }
+    };
+    // If the item is active (ie open) then listen for clicks
+    if (isActive) {
+      window.addEventListener("click", pageClickEvent);
+    }
+
+    return () => {
+      window.removeEventListener("click", pageClickEvent);
+    };
+  }, [isActive]);
+
   return (
-    <div className="dropdown">
+    <div className="dropdown" ref={dropdownRef}>
       <div className="dropdown__button">
         <button
           onClick={() => {
             handleIsActive();
           }}
         >
-          <p> Filter By Region</p>{" "}
+          <p>Filter By Region</p>{" "}
           {isActive ? (
             <span>
               <img src={ChevronUp} alt="ChevronUp" />
@@ -59,10 +78,7 @@ const Dropdown = () => {
           )}
         </button>
       </div>
-      <div
-        ref={dropdownRef}
-        className={`dropdown__list ${isActive ? "active" : "inactive"}`}
-      >
+      <div className={`dropdown__list ${isActive ? "active" : "inactive"}`}>
         <ul>
           {FILTER_REGIONS.map(({ id, value, name }) => {
             return (
