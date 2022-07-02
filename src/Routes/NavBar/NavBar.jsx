@@ -8,6 +8,12 @@ import "./NavBar.css";
 const dark = false;
 
 const NavBar = () => {
+  // const [isLightTheme, setIsLightTheme] = useState(true);
+
+  // const lightThemeHandler = () => {
+  //   setIsLightTheme((prevMode) => !prevMode);
+  // };
+
   return (
     <Fragment>
       <div className="nav_bar">

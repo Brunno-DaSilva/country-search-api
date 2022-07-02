@@ -10,8 +10,6 @@ import "./Home.css";
 const Home = () => {
   const { countriesData, filterCountries } = useContext(DataContext);
   const navigate = useNavigate();
-  console.log("filterCountries ---", filterCountries);
-  console.log("countriesData --", countriesData);
   const filterOrCountries =
     filterCountries.length >= 1 ? filterCountries : countriesData;
 
