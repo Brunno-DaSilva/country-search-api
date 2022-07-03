@@ -17,6 +17,13 @@ const Details = () => {
   });
 
   const { population, region, capital, flags, name } = country;
+  const nativeName =
+    name.nativeName[Object.keys(country.name.nativeName)[0]].common;
+  console.log(
+    "name.nativeName => ",
+    name.nativeName[Object.keys(country.name.nativeName)[0]].common
+  );
+
   return (
     <div className="details">
       {countriesData === undefined ? (
@@ -42,19 +49,22 @@ const Details = () => {
                   style={{
                     backgroundImage: `url(${flags.png})`,
                     backgroundRepeat: "no-repeat",
-                    backgroundSize: "cover",
+                    backgroundSize: "contain",
                   }}
                   className="card__left_side__img"
                 ></div>
               </div>
             </div>
 
-            <div className="card__ride_side">
+            <div className="card__right_side">
               <div className="card__bottom__title">
                 <h3>{name.common}</h3>
               </div>
 
               <div className="card__bottom__description">
+                <p>
+                  Native Name: <span>{nativeName}</span>
+                </p>
                 <p>
                   Population: <span>{population}</span>
                 </p>
@@ -64,6 +74,14 @@ const Details = () => {
                 <p>
                   Capital: <span>{capital}</span>{" "}
                 </p>
+              </div>
+              <div className="card__bottom__border_countries">
+                <div className="border_countries__title">
+                  <h3>Border Countries:</h3>
+                </div>
+                <div className="border_countries__countries">
+                  <p>{capital}</p>
+                </div>
               </div>
             </div>
           </div>

@@ -63,6 +63,15 @@
 .card__left_side__img {
   width: 38rem;
   height: 28rem;
-  border: 1px solid red;
   object-fit: cover;
+}
+
+.card__right_side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.card__bottom__title {
+  border: 1px solid rgb(29, 7, 43);
 }
