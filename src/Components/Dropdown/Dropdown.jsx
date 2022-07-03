@@ -7,6 +7,11 @@ import DataContext from "../../Context/DataContext.js";
 import "./Dropdown.css";
 const FILTER_REGIONS = [
   {
+    id: 0,
+    name: "All",
+    value: "All",
+  },
+  {
     id: 1,
     name: "Africa",
     value: "africa",

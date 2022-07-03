@@ -1,5 +1,4 @@
 import { createContext, useState, useEffect } from "react";
-import { Route, Routes, useParams } from "react-router-dom";
 
 const DataContext = createContext({});
 
@@ -7,7 +6,6 @@ export const DataProvider = ({ children }) => {
   const API_URL_DATA = `https://restcountries.com/v3.1/all`;
   const [countriesData, setCountriesData] = useState([]);
   const [filterCountries, setFilterCountries] = useState([]);
-  const [filterByRegion, setFilterByRegion] = useState([]);
 
   const handleFilterCountries = (e) => {
     const filteredCountries = countriesData.filter(({ region, name }) => {
@@ -21,10 +19,14 @@ export const DataProvider = ({ children }) => {
 
   const handleFilterByRegion = (e) => {
     const filterRegion = countriesData.filter(
-      (region) => region.region === e.target.outerText
+      (data) => data.region === e.target.outerText
     );
 
-    setFilterByRegion(filterRegion);
+    if (e.target.outerText === "All") {
+      setFilterCountries(countriesData);
+    } else {
+      setFilterCountries(filterRegion);
+    }
   };
 
   useEffect(() => {
@@ -47,7 +49,6 @@ export const DataProvider = ({ children }) => {
       value={{
         countriesData,
         filterCountries,
-        filterByRegion,
         handleFilterCountries,
         handleFilterByRegion,
       }}

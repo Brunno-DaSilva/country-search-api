@@ -8,8 +8,11 @@ import DataContext from "../../Context/DataContext";
 import "./Home.css";
 
 const Home = () => {
-  const { countriesData, filterCountries } = useContext(DataContext);
+  const { countriesData, filterCountries, filterByRegion } =
+    useContext(DataContext);
+
   const navigate = useNavigate();
+
   const filterOrCountries =
     filterCountries.length >= 1 ? filterCountries : countriesData;
 
