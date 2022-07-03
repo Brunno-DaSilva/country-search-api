@@ -40,10 +40,12 @@ const Details = () => {
     .map((key) => languages[key])
     .join(", ");
 
-  const borderCountries = borders.map((cca3) => {
-    let countryData = countriesData.find((con) => con.cca3 === cca3);
-    return <p>{countryData.name.common}</p>;
-  });
+  const borderCountries = borders
+    ? borders.map((cca3) => {
+        let countryData = countriesData.find((con) => con.cca3 === cca3);
+        return <p key={countryData.name.common}>{countryData.name.common}</p>;
+      })
+    : "None";
 
   return (
     <div className="details">
@@ -69,8 +71,6 @@ const Details = () => {
                 <div
                   style={{
                     backgroundImage: `url(${flags.png})`,
-                    backgroundRepeat: "no-repeat",
-                    backgroundSize: "contain",
                   }}
                   className="details__left_side__img"
                 ></div>

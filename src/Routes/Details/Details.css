@@ -4,7 +4,6 @@
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  border: var(--border);
 }
 
 .details__wrapper {
@@ -13,6 +12,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 3rem;
 }
 
 .details__button_container {
@@ -50,6 +50,7 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  margin-top: 3rem;
 }
 
 .details__left_side,
@@ -60,10 +61,10 @@
 
 .details__left_side__img {
   width: 38rem;
-  height: 28rem;
-  object-fit: cover;
+  height: 26rem;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-
 .details__right_side {
   display: flex;
   flex-direction: column;
