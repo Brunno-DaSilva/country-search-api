@@ -16,13 +16,30 @@ const Details = () => {
     return mutatedName === countryId;
   });
 
-  const { population, region, capital, flags, name } = country;
+  const {
+    population,
+    region,
+    subregion,
+    capital,
+    flags,
+    name,
+    tld,
+    currencies,
+    languages,
+  } = country;
   const nativeName =
     name.nativeName[Object.keys(country.name.nativeName)[0]].common;
-  console.log(
-    "name.nativeName => ",
-    name.nativeName[Object.keys(country.name.nativeName)[0]].common
-  );
+  const topLevelDomain = tld[0];
+
+  const currenciesData = Object.keys(currencies)
+    .map((currency) => currencies[currency].name)
+    .join(", ");
+
+  const languagesData = Object.keys(languages)
+    .map((key) => languages[key])
+    .join(", ");
+
+  console.log("languagesData => ", languagesData);
 
   return (
     <div className="details">
@@ -43,43 +60,61 @@ const Details = () => {
             </Link>
           </div>
           <div className="details__info">
-            <div className="card__left_side">
-              <div className="card__left_side__img">
+            <div className="details__left_side">
+              <div className="details__left_side__img">
                 <div
                   style={{
                     backgroundImage: `url(${flags.png})`,
                     backgroundRepeat: "no-repeat",
                     backgroundSize: "contain",
                   }}
-                  className="card__left_side__img"
+                  className="details__left_side__img"
                 ></div>
               </div>
             </div>
 
-            <div className="card__right_side">
-              <div className="card__bottom__title">
+            <div className="details__right_side">
+              <div className="details__bottom__title">
                 <h3>{name.common}</h3>
               </div>
 
-              <div className="card__bottom__description">
-                <p>
-                  Native Name: <span>{nativeName}</span>
-                </p>
-                <p>
-                  Population: <span>{population}</span>
-                </p>
-                <p>
-                  Region: <span>{region}</span>{" "}
-                </p>
-                <p>
-                  Capital: <span>{capital}</span>{" "}
-                </p>
+              <div className="details__bottom__description">
+                <div className="details__bottom__description_left">
+                  <p>
+                    Native Name: <span>{nativeName}</span>
+                  </p>
+                  <p>
+                    Population: <span>{population}</span>
+                  </p>
+                  <p>
+                    Region: <span>{region}</span>{" "}
+                  </p>
+                  <p>
+                    Sub Region: <span>{subregion}</span>{" "}
+                  </p>
+                  <p>
+                    Capital: <span>{capital}</span>{" "}
+                  </p>
+                </div>
+
+                <div className="details__bottom__description_right">
+                  <p>
+                    Top Level Domain: <span>{topLevelDomain}</span>
+                  </p>
+                  <p>
+                    Currencies: <span>{currenciesData}</span>
+                  </p>
+                  <p>
+                    Languages: <span>{languagesData}</span>{" "}
+                  </p>
+                </div>
               </div>
-              <div className="card__bottom__border_countries">
+              <div className="details__bottom__border_countries">
                 <div className="border_countries__title">
-                  <h3>Border Countries:</h3>
+                  <h4>Border Countries:</h4>
                 </div>
                 <div className="border_countries__countries">
+                  <p>{capital}</p>
                   <p>{capital}</p>
                 </div>
               </div>
