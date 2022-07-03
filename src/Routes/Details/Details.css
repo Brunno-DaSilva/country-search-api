@@ -45,7 +45,6 @@
 }
 
 .details__info {
-  border: 1px solid red;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -98,6 +97,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  flex-wrap: wrap;
   gap: 1.5rem;
 }
 .border_countries__title h4 {
@@ -106,6 +106,7 @@
 
 .border_countries__countries {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 .border_countries__countries p {
