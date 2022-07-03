@@ -36,29 +36,34 @@ const Details = () => {
             </Link>
           </div>
           <div className="details__info">
-            <div className="home__countries_card">
-              <div className="card__top">
-                <div className="card__top__img">
-                  <img src={flags.png} alt={name.official} />
-                </div>
+            <div className="card__left_side">
+              <div className="card__left_side__img">
+                <div
+                  style={{
+                    backgroundImage: `url(${flags.png})`,
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "cover",
+                  }}
+                  className="card__left_side__img"
+                ></div>
+              </div>
+            </div>
+
+            <div className="card__ride_side">
+              <div className="card__bottom__title">
+                <h3>{name.common}</h3>
               </div>
 
-              <div className="card__bottom">
-                <div className="card__bottom__title">
-                  <h3>{name.common}</h3>
-                </div>
-
-                <div className="card__bottom__description">
-                  <p>
-                    Population: <span>{population}</span>
-                  </p>
-                  <p>
-                    Region: <span>{region}</span>{" "}
-                  </p>
-                  <p>
-                    Capital: <span>{capital}</span>{" "}
-                  </p>
-                </div>
+              <div className="card__bottom__description">
+                <p>
+                  Population: <span>{population}</span>
+                </p>
+                <p>
+                  Region: <span>{region}</span>{" "}
+                </p>
+                <p>
+                  Capital: <span>{capital}</span>{" "}
+                </p>
               </div>
             </div>
           </div>
