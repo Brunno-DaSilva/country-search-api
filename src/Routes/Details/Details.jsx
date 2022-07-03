@@ -7,7 +7,6 @@ import DataContext from "../../Context/DataContext";
 import "./Details.css";
 
 const Details = () => {
-  // const API_URL_DATA = `https://restcountries.com/v3.1/all`;
   const { countriesData } = useContext(DataContext);
   const { countryId } = useParams();
 
@@ -26,6 +25,8 @@ const Details = () => {
     tld,
     currencies,
     languages,
+    cca3,
+    borders,
   } = country;
   const nativeName =
     name.nativeName[Object.keys(country.name.nativeName)[0]].common;
@@ -39,7 +40,10 @@ const Details = () => {
     .map((key) => languages[key])
     .join(", ");
 
-  console.log("languagesData => ", languagesData);
+  const borderCountries = borders.map((cca3) => {
+    let countryData = countriesData.find((con) => con.cca3 === cca3);
+    return <p>{countryData.name.common}</p>;
+  });
 
   return (
     <div className="details">
@@ -114,8 +118,7 @@ const Details = () => {
                   <h4>Border Countries:</h4>
                 </div>
                 <div className="border_countries__countries">
-                  <p>{capital}</p>
-                  <p>{capital}</p>
+                  {borderCountries}
                 </div>
               </div>
             </div>
