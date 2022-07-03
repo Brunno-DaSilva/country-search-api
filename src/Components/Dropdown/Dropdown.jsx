@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import ChevronDown from "../../assets/chevron-down.svg";
 import ChevronUp from "../../assets/chevron-up.svg";
+import { useContext } from "react";
+import DataContext from "../../Context/DataContext.js";
 
 import "./Dropdown.css";
 const FILTER_REGIONS = [
@@ -11,8 +13,8 @@ const FILTER_REGIONS = [
   },
   {
     id: 2,
-    name: "America",
-    value: "america",
+    name: "Americas",
+    value: "americas",
   },
   {
     id: 3,
@@ -32,6 +34,7 @@ const FILTER_REGIONS = [
 ];
 
 const Dropdown = () => {
+  const { handleFilterByRegion } = useContext(DataContext);
   let dropdownRef = useRef(null);
   const [isActive, setIsActive] = useState(false);
 
@@ -82,7 +85,12 @@ const Dropdown = () => {
         <ul>
           {FILTER_REGIONS.map(({ id, value, name }) => {
             return (
-              <li key={id} id={id} value={value}>
+              <li
+                key={id}
+                id={id}
+                onClick={(e) => handleFilterByRegion(e)}
+                value={value}
+              >
                 {name}
               </li>
             );

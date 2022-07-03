@@ -7,6 +7,7 @@ export const DataProvider = ({ children }) => {
   const API_URL_DATA = `https://restcountries.com/v3.1/all`;
   const [countriesData, setCountriesData] = useState([]);
   const [filterCountries, setFilterCountries] = useState([]);
+  const [filterByRegion, setFilterByRegion] = useState([]);
 
   const handleFilterCountries = (e) => {
     const filteredCountries = countriesData.filter(({ region, name }) => {
@@ -16,6 +17,14 @@ export const DataProvider = ({ children }) => {
     });
 
     setFilterCountries(filteredCountries);
+  };
+
+  const handleFilterByRegion = (e) => {
+    const filterRegion = countriesData.filter(
+      (region) => region.region === e.target.outerText
+    );
+
+    setFilterByRegion(filterRegion);
   };
 
   useEffect(() => {
@@ -38,7 +47,9 @@ export const DataProvider = ({ children }) => {
       value={{
         countriesData,
         filterCountries,
+        filterByRegion,
         handleFilterCountries,
+        handleFilterByRegion,
       }}
     >
       {children}
