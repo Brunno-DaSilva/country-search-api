@@ -9,7 +9,12 @@ import DataContext from "../../Context/DataContext.js";
 import "./SearchForm.css";
 
 const SearchForm = () => {
+  const focusRef = useRef();
   const { handleFilterCountries } = useContext(DataContext);
+
+  useEffect(() => {
+    focusRef.current.focus();
+  }, []);
 
   return (
     <div className="search__container">
@@ -19,6 +24,7 @@ const SearchForm = () => {
         </div>
         <div className="search__input">
           <input
+            ref={focusRef}
             type="search"
             placeholder="Search for a country"
             onChange={(e) => {
