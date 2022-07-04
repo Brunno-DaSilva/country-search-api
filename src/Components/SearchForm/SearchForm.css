@@ -37,6 +37,10 @@
   font-family: var(--ff);
   width: 100%;
 }
+.search__input input:focus {
+  outline: 1px solid hsla(205, 34%, 44%, 0.374);
+  border-radius: 0.25rem;
+}
 .search__input input::placeholder {
   color: var(--lm-input-dark-gray);
   font-size: var(--fs-home);
