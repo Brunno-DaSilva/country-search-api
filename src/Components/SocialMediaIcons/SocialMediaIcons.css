@@ -1,0 +1,16 @@
+.SocialMedia {
+  display: flex;
+}
+
+.icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.icons li {
+  text-decoration: none;
+  list-style-type: none;
+}

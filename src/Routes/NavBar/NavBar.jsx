@@ -1,5 +1,6 @@
 import React, { useState, Fragment } from "react";
 import { Outlet, Link } from "react-router-dom";
+import SocialMedia from "../../Components/SocialMediaIcons/SocialMediaIcons";
 
 import { faMoon, faSpinner, faSun } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -23,6 +24,7 @@ const NavBar = () => {
               <FontAwesomeIcon className="spinner" icon={faSpinner} />
             </p>
           </Link>
+          <SocialMedia />
           <div className="nav__dark_mode">
             <button
               onClick={() => {

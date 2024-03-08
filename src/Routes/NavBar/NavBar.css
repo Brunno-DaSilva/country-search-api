@@ -13,9 +13,8 @@
 
 .nav__container {
   width: 90%;
-  height: 90%;
   display: grid;
-  grid-template-columns: 6fr 6fr;
+  grid-template-columns: 10fr 1fr 1fr;
 }
 .nav__logo {
   text-decoration: none;
