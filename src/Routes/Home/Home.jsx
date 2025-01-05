@@ -1,15 +1,14 @@
 import React from "react";
 import FormContainer from "../../Components/Form/FormContainer";
 
-import { Outlet, useNavigate, Link } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import DataContext from "../../Context/DataContext";
 
 import "./Home.css";
 
 const Home = () => {
-  const { countriesData, filterCountries, filterByRegion } =
-    useContext(DataContext);
+  const { countriesData, filterCountries } = useContext(DataContext);
 
   const navigate = useNavigate();
 

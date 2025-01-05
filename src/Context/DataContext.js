@@ -47,7 +47,7 @@ export const DataProvider = ({ children }) => {
 
   const handleFilterCountries = (e) => {
     const filteredCountries = countriesData.filter(({ region, name }) => {
-      let wordToMatch = e.target.value;
+      const wordToMatch = e.target.value;
       const regex = new RegExp(wordToMatch, "gi");
       return name.common.match(regex) || region.match(regex);
     });
@@ -73,20 +73,22 @@ export const DataProvider = ({ children }) => {
         const response = await fetch(API_URL_DATA);
         const countriesList = await response.json();
 
+        // Populate both `countriesData` and `filterCountries` on load
         setCountriesData(countriesList);
+        setFilterCountries(countriesList); // Display all countries by default
       } catch (err) {
         console.log(err.stack);
       }
     };
 
     fetchCountries();
-  }, []);
+  }, [API_URL_DATA]);
 
   return (
     <DataContext.Provider
       value={{
         countriesData,
-        filterCountries,
+        filterCountries, // Filtered or default countries for rendering
         handleFilterCountries,
         handleFilterByRegion,
         socialMediaIcons,
