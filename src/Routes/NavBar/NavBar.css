@@ -48,3 +48,19 @@
   margin-left: 0.5rem !important;
   cursor: pointer;
 }
+.SocialMedia {
+  display: flex;
+}
+
+.navbar__icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.navbar__icons li {
+  text-decoration: none;
+  list-style-type: none;
+}

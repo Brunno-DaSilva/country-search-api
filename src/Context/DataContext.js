@@ -1,11 +1,49 @@
 import { createContext, useState, useEffect } from "react";
 
+import LinkedInIcon from "../assets/social-media/linkedin.svg";
+import GithubIcon from "../assets/social-media/github.svg";
+import MetaIcon from "../assets/social-media/meta.svg";
+import XIcon from "../assets/social-media/x.svg";
+
 const DataContext = createContext({});
 
 export const DataProvider = ({ children }) => {
   const API_URL_DATA = `https://restcountries.com/v3.1/all`;
   const [countriesData, setCountriesData] = useState([]);
   const [filterCountries, setFilterCountries] = useState([]);
+  const [socialMediaIcons, setSocialMediaIcons] = useState([]);
+
+  useEffect(() => {
+    // Fetch social media icons data
+    const SOCIAL_MEDIA_DATA = [
+      {
+        id: 1,
+        name: "LinkedIn",
+        url: "https://www.linkedin.com/in/bruno-dasilva/",
+        icon: LinkedInIcon,
+      },
+      {
+        id: 2,
+        name: "GitHub",
+        url: "https://github.com/Brunno-DaSilva",
+        icon: GithubIcon,
+      },
+      {
+        id: 3,
+        name: "Meta",
+        url: "https://meta.com/Brunno-DaSilva",
+        icon: MetaIcon,
+      },
+      {
+        id: 4,
+        name: "X",
+        url: "https://twitter.com/Bruno_lDasilva",
+        icon: XIcon,
+      },
+    ];
+
+    setSocialMediaIcons(SOCIAL_MEDIA_DATA);
+  }, []);
 
   const handleFilterCountries = (e) => {
     const filteredCountries = countriesData.filter(({ region, name }) => {
@@ -51,6 +89,7 @@ export const DataProvider = ({ children }) => {
         filterCountries,
         handleFilterCountries,
         handleFilterByRegion,
+        socialMediaIcons,
       }}
     >
       {children}

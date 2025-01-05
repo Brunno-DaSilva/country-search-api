@@ -1,7 +1,7 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment, useContext } from "react";
 import { Outlet, Link } from "react-router-dom";
-import SocialMedia from "../../Components/SocialMediaIcons/SocialMediaIcons";
-
+import DataContext from "../../Context/DataContext";
+import SocialMediaIcons from "../../Components/SocialMediaIcons/SocialMediaIcons";
 import { faMoon, faSpinner, faSun } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -9,6 +9,7 @@ import "./NavBar.css";
 
 const NavBar = () => {
   const [isLightTheme, setIsLightTheme] = useState(true);
+  const { socialMediaIcons } = useContext(DataContext);
 
   const lightThemeHandler = () => {
     setIsLightTheme((prevMode) => !prevMode);
@@ -24,7 +25,13 @@ const NavBar = () => {
               <FontAwesomeIcon className="spinner" icon={faSpinner} />
             </p>
           </Link>
-          <SocialMedia />
+          <ul className="navbar__icons">
+            {socialMediaIcons.map(({ id, name, url, icon }) => {
+              return (
+                <SocialMediaIcons id={id} name={name} url={url} icon={icon} />
+              );
+            })}
+          </ul>
           <div className="nav__dark_mode">
             <button
               onClick={() => {
