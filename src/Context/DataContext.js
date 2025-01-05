@@ -71,13 +71,18 @@ export const DataProvider = ({ children }) => {
     const fetchCountries = async () => {
       try {
         const response = await fetch(API_URL_DATA);
+
+        // Check if the response is successful
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
         const countriesList = await response.json();
 
-        // Populate both `countriesData` and `filterCountries` on load
         setCountriesData(countriesList);
-        setFilterCountries(countriesList); // Display all countries by default
+        setFilterCountries(countriesList);
       } catch (err) {
-        console.log(err.stack);
+        console.error(err.stack);
       }
     };
 
@@ -88,7 +93,7 @@ export const DataProvider = ({ children }) => {
     <DataContext.Provider
       value={{
         countriesData,
-        filterCountries, // Filtered or default countries for rendering
+        filterCountries,
         handleFilterCountries,
         handleFilterByRegion,
         socialMediaIcons,
