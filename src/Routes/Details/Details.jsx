@@ -25,7 +25,6 @@ const Details = () => {
     tld,
     currencies,
     languages,
-    cca3,
     borders,
   } = country;
   const nativeName =
